@@ -37,6 +37,14 @@ To identify segments of the population that form the core customer base for a co
   title="General Population Clusters"
   style="display: inline-block; margin: 0 auto; width:500px; height:400px"/>
   
-
 ## 5. Analysis
   * Analyzing the features that are unique to the organization's customer base. Detailed analysis is provided in the notebook, do check it out!
+
+## Install
+
+This project requires **Python 3.x** and the following Python libraries installed:
+
+- [NumPy](http://www.numpy.org/)
+- [Pandas](http://pandas.pydata.org)
+- [matplotlib](http://matplotlib.org/)
+- [scikit-learn](http://scikit-learn.org/stable/)
