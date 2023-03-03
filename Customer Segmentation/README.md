@@ -26,13 +26,13 @@ To identify segments of the population that form the core customer base for a co
   * The clusters of general population and customer base are visualized to identify the target clusters.  
 
 <img
-  src="https://github.com/Praveen-Samudrala/Machine-Learning-and-Data-Science/blob/main/Projects/Customer%20Segmentation/Images/General%20Population%20Cluster.png"
+  src="https://github.com/Praveen-Samudrala/Machine-Learning-and-Data-Science/blob/main/Customer%20Segmentation/Images/General%20Population%20Cluster.png"
   alt="Customer Population Clusters"
   title="Customer Population Clusters"
   style="display: inline-block; margin: 0 auto; width:500px; height:400px"/>
 
 <img
-  src="https://github.com/Praveen-Samudrala/Machine-Learning-and-Data-Science/blob/main/Projects/Customer%20Segmentation/Images/Customer%20Cluster.png"
+  src="https://github.com/Praveen-Samudrala/Machine-Learning-and-Data-Science/blob/main/Customer%20Segmentation/Images/Customer%20Cluster.png"
   alt="General Population Clusters"
   title="General Population Clusters"
   style="display: inline-block; margin: 0 auto; width:500px; height:400px"/>
