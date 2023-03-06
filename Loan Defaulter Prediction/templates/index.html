@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ELG-5902 - Project</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<style type="text/css">
+*{margin:0;padding:0;box-sizing:border-box}body,html{height:100%;font-family:Poppins-Regular,sans-serif}a{font-family:Poppins-Regular;font-size:14px;line-height:1.7;color:#666;margin:0;transition:all .4s;-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s}a:focus{outline:0!important}a:hover{text-decoration:none}h1,h2,h3,h4,h5,h6{margin:0}input{outline:0;border:none}input:focus::-webkit-input-placeholder{color:transparent}input:focus:-moz-placeholder{color:transparent}input:focus::-moz-placeholder{color:transparent}input:focus:-ms-input-placeholder{color:transparent}input::-webkit-input-placeholder{color:#adadad}input:-moz-placeholder{color:#adadad}input::-moz-placeholder{color:#adadad}input:-ms-input-placeholder{color:#adadad}button{outline:0!important;border:none;background:0 0}button:hover{cursor:pointer}.container{max-width:1200px}.container-contact100{width:100%;min-height:100vh;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:15px;background:#a64bf4;background:-webkit-linear-gradient(45deg,#00dbde,#fc00ff);background:-o-linear-gradient(45deg,#00dbde,#fc00ff);background:-moz-linear-gradient(45deg,#00dbde,#fc00ff);background:linear-gradient(45deg,#00dbde,#fc00ff)}.wrap-contact100{width:500px;background:#fff;border-radius:10px;overflow:hidden;padding:42px 55px 45px 55px}.contact100-form{width:100%}.contact100-form-title{display:block;font-family:Poppins-Bold;font-size:39px;color:#333;line-height:1.2;text-align:center;padding-bottom:10px}.wrap-input100{width:100%;position:relative;border-bottom:2px solid #d9d9d9;padding-bottom:10px;margin-bottom:15px}.input100{display:block;width:100%;background:0 0;font-family:Poppins-Medium;font-size:18px;color:#333;line-height:1.2;padding:0 5px}.focus-input100{position:absolute;display:block;width:100%;height:100%;top:0;left:0;pointer-events:none}.focus-input100::before{content:"";display:block;position:absolute;bottom:-2px;left:0;width:0;height:2px;-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s;transition:all .4s;background:#7f7f7f}input.input100{height:40px}.input100:focus+.focus-input100::before{width:100%}.has-val.input100+.focus-input100::before{width:100%}.container-contact100-form-btn{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:wrap;justify-content:center;padding-top:13px}.wrap-contact100-form-btn{width:100%;display:block;position:relative;z-index:1;border-radius:25px;overflow:hidden;margin:0 auto}.contact100-form-bgbtn{position:absolute;z-index:-1;width:300%;height:100%;background:#a64bf4;background:-webkit-linear-gradient(left,#00dbde,#fc00ff,#00dbde,#fc00ff);background:-o-linear-gradient(left,#00dbde,#fc00ff,#00dbde,#fc00ff);background:-moz-linear-gradient(left,#00dbde,#fc00ff,#00dbde,#fc00ff);background:linear-gradient(left,#00dbde,#fc00ff,#00dbde,#fc00ff);top:0;left:-100%;-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s;transition:all .4s}.contact100-form-btn{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;justify-content:center;align-items:center;padding:0 20px;width:100%;height:50px;font-family:Poppins-Medium;font-size:16px;color:#fff;line-height:1.2}.wrap-contact100-form-btn:hover .contact100-form-bgbtn{left:0}.contact100-form-btn i{-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s;transition:all .4s}.contact100-form-btn:hover i{-webkit-transform:translateX(10px);-moz-transform:translateX(10px);-ms-transform:translateX(10px);-o-transform:translateX(10px);transform:translateX(10px)}@media (max-width:576px){.wrap-contact100{padding:72px 15px 65px 15px}}.wrap-contact100{width:800px;background:#fff;border-radius:10px;overflow:hidden;padding:42px 55px 45px 55px}.contact100-form-title{font-size:26px}
+</style>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form action="{{ url_for('predict')}}"method="post" >
+				<span class="contact100-form-title" style="font-size:32px">Loan Approval Prediction for TSARO Labs</span>
+				<span class="contact100-form-title" id="output" style="color: #ff0000;">{{ prediction_text }}</span>
+				<br>
+
+				
+				<div class="wrap-input100 " >
+					<span class="label-input100">Loan Amount</span>
+					<input class="input100" type="text" id="loan_amount" name="loan_amount" placeholder="Loan Amount">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 2</span>
+					<select  class="input100" id="term" name="term" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select value</option>
+							<option value="36">36</option>
+							<option value="60">60</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 " >
+					<span class="label-input100">Parameter 3</span>
+					<input class="input100" type="number" id="int_rate" name="int_rate" placeholder="(5-20)">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100" style="border-bottom: 0px;" >
+					<span class="label-input100">Parameter 4</span>
+						<select  class="input100" id="sub_grade" name="sub_grade" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select value</option>
+                            <option value="A1">A1</option>
+							<option value="A2">A2</option>
+							<option value="A3">A3</option>
+							<option value="A4">A4</option>
+							<option value="A5">A5</option>
+							<option value="B1">B1</option>
+                            <option value="B2">B2</option>
+							<option value="B3">B3</option>
+							<option value="B4">B4</option>
+							<option value="B5">B5</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+							<option value="C3">C3</option>
+							<option value="C4">C4</option>
+							<option value="C5">C5</option>
+                            <option value="D1">D1</option>
+                            <option value="D2">D2</option>
+							<option value="D3">D3</option>
+							<option value="D4">D4</option>
+							<option value="D5">D5</option>
+                            <option value="E1">E1</option>
+                            <option value="E2">E2</option>
+							<option value="E3">E3</option>
+							<option value="E4">E4</option>
+							<option value="E5">E5</option>
+                            <option value="F1">F1</option>
+                            <option value="F2">F2</option>
+							<option value="F3">F3</option>
+							<option value="F4">F4</option>
+							<option value="F5">F5</option>
+                            <option value="G1">G1</option>
+                            <option value="G2">G2</option>
+							<option value="G3">G3</option>
+							<option value="G4">G4</option>
+							<option value="G5">G5</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+                
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 5</span>
+					<select  class="input100" id="home_ownership" name="home_ownership" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Choose value</option>
+							<option value="RENT">RENT</option>
+							<option value="MORTGAGE">MORTGAGE</option>
+                            <option value="OWN">OWN</option>
+                            <option value="OTHER">OTHER</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 6</span>
+					<input class="input100" type="number" id="annual_inc" name="annual_inc" placeholder="(10000 - )">
+					<span class="focus-input100"></span>
+				</div>
+                
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 7</span>
+					<select  class="input100" id="verification_status" name="verification_status" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Choose Value</option>
+							<option value="Not Verified">Not Verified</option>
+							<option value="Source Verified">Source Verified</option>
+                            <option value="Verified">Verified</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100" style="border-bottom: 0px;" >
+					<span class="label-input100">Parameter 8</span>
+						<select  class="input100" id="purpose" name="purpose" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Choose Value</option>
+                            <option value="vacation">vacation</option>
+							<option value="debt_consolidation">debt_consolidation</option>
+							<option value="credit_card">credit_card</option>
+							<option value="home_improvement">home_improvement</option>
+							<option value="small_business">small_business</option>
+							<option value="major_purchase">major_purchase</option>
+                            <option value="medical">medical</option>
+							<option value="wedding">wedding</option>
+							<option value="car">car</option>
+							<option value="moving">moving</option>
+                            <option value="house">house</option>
+                            <option value="educational">educational</option>
+							<option value="renewable_energy">renewable_energy</option>
+							<option value="other">other</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 9</span>
+					<input class="input100" type="number" id="dti" name="dti" placeholder="(5-20)">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 10</span>
+					<input class="input100" type="number" id="open_acc" name="open_acc" placeholder="(5-90)">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 11</span>
+					<input class="input100" type="number" id="pub_rec" name="pub_rec" placeholder="(0-50)">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 12</span>
+					<input class="input100" type="number" id="revol_bal" name="revol_bal" placeholder="(1000-1000000)">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 13</span>
+					<input class="input100" type="number" id="revol_util" name="revol_util" placeholder="(10-900)">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 14</span>
+					<input class="input100" type="number" id="total_acc" name="total_acc" placeholder="(2-150)">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 15</span>
+					<select  class="input100" id="initial_list_status" name="initial_list_status" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Choose value</option>
+							<option value="f">f</option>
+							<option value="w">w</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 16</span>
+					<select  class="input100" id="application_type" name="application_type" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Choose value</option>
+							<option value="INDIVIDUAL">INDIVIDUAL</option>
+							<option value="JOINT">JOINT</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 17</span>
+					<input class="input100" type="number" id="mort_acc" name="mort_acc" placeholder="(0-27)">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 18</span>
+					<input class="input100" type="number" id="pub_rec_bankruptcies" name="pub_rec_bankruptcies" placeholder="(0-10)">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 " >
+					<span class="label-input100">Parameter 19</span>
+					<input class="input100" type="number" id="earliest_cr_year" name="earliest_cr_year" placeholder="Enter Year">
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100" style="border-bottom: 0px;" >
+					<span class="label-input100">Parameter 20</span>
+						<select  class="input100" id="zip_code" name="zip_code" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select Value</option>
+							<option value="22690">22690</option>
+							<option value="05113">05113</option>
+							<option value="00813">00813</option>
+							<option value="11650">11650</option>
+							<option value="30723">30723</option>
+                            <option value="70466">70466</option>
+							<option value="29597">29597</option>
+							<option value="48052">48052</option>
+							<option value="86630">86630</option>
+							<option value="93700">93700</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" id='submit' type="submit" value="Submit">Submit</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+<!-- 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('#submit').click(function(event){    
+		  event.preventDefault();     
+		  var exist_response = $.ajax({type:"GET",url:"http://13.250.101.192/predict",data:"gender="+$('#gender').val()+"&height_cms="+$('#height_cms').val()+"&caste="+$('#caste').val()+"&religion="+$('#religion').val()+"&mother_tongue="+$('#mother_tongue').val()+"&country="+$('#country').val(),async: false}).responseText;
+		  $('#output').text("Your Predicted Year of Marriage : "+ String(parseInt(exist_response.split(".")[0]) + parseInt($('#yob').val())));
+		});
+	</script> -->
+</body>
+</html>
+
+
+
+
