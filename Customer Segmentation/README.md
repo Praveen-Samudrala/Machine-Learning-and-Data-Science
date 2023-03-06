@@ -11,15 +11,15 @@ To identify segments of the population that form the core customer base for a co
   * Estimate the necessary steps to wrangle data
 
 ## 2. Data Preprocessing  
-  * Handling Null Values
-  * Feature Encoding
+  * Handling Null Values - Strategic Imputation and Dropping
+  * Feature Encoding - Encoded Categorical, Ordinal and Mixed-type variables
   * Creating a Cleaning Function
   * Feature Transformation
       - Feature Scaling
       - Dimensionality Reduction
 
 ## 3. Model Building
-  * Clustering the General Population using Elbow Method
+  * Clustering the General Population using Elbow Method and Silhoutte Score
   * Clustering the Customer Population
 
 ## 4. Result
