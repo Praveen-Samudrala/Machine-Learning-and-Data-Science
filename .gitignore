@@ -5,3 +5,7 @@ Projects/NLP with Disaster Tweets/catboost_info/time_left.tsv
 Projects/NLP with Disaster Tweets/catboost_info/learn_error.tsv
 Projects/NLP with Disaster Tweets/app.py
 Projects/NLP with Disaster Tweets/objects.pkl
+Projects/Loan Defaulter Prediction/catboost_info/catboost_training.json
+Projects/Loan Defaulter Prediction/catboost_info/time_left.tsv
+Projects/Loan Defaulter Prediction/catboost_info/learn_error.tsv
+*.tfevents
