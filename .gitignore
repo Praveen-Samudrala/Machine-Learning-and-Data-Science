@@ -9,3 +9,4 @@ Projects/Loan Defaulter Prediction/catboost_info/catboost_training.json
 Projects/Loan Defaulter Prediction/catboost_info/time_left.tsv
 Projects/Loan Defaulter Prediction/catboost_info/learn_error.tsv
 *.tfevents
+Projects/Loan Defaulter Prediction/app-old.py
