@@ -52,26 +52,22 @@ The Loan Defaulter Predictor Application analyses a loan applicant's data and pr
 <img
   src="https://github.com/Praveen-Samudrala/Machine-Learning-and-Data-Science/blob/main/Loan%20Defaulter%20Prediction/images/screen1.png"
   alt="Home Page_1"
-  title="Home Page"
-  style="display: inline-block; margin: 0 auto; width:500px; height:400px"/>
+  title="Home Page"/>
 
 <img
   src="https://github.com/Praveen-Samudrala/Machine-Learning-and-Data-Science/blob/main/Loan%20Defaulter%20Prediction/images/screen2.png"
   alt="Home Page_2"
-  title="Home Page"
-  style="display: inline-block; margin: 0 auto; width:500px; height:400px"/>
+  title="Home Page"/>
 
 <img
   src="https://github.com/Praveen-Samudrala/Machine-Learning-and-Data-Science/blob/main/Loan%20Defaulter%20Prediction/images/screen3.png"
   alt="Predictor_1"
-  title="Predictor"
-  style="display: inline-block; margin: 0 auto; width:500px; height:400px"/>
+  title="Predictor"/>
 
 <img
   src="https://github.com/Praveen-Samudrala/Machine-Learning-and-Data-Science/blob/main/Loan%20Defaulter%20Prediction/images/screen4.png"
   alt="Predictor_2"
-  title="Predictor"
-  style="display: inline-block; margin: 0 auto; width:500px; height:400px"/>
+  title="Predictor"/>
   
 ## Launch
 Install the dependencies via: 
