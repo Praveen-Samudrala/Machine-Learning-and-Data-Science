@@ -1,0 +1,10 @@
+imblearn
+lightgbm
+lottie
+pandas
+Pillow
+seaborn
+scikit-learn
+streamlit
+streamlit-lottie
+tensorflow
