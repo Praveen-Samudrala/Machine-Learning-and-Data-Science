@@ -1,0 +1,23 @@
+zookeeper.properties
+dataDir=D:/Misc/Kafka/kafka_logs/zookeeper
+maxClientCnxns=1
+
+server.properties
+uncomment listeners
+log.dirs=D:/Misc/Kafka/kafka_logs/server_logs
+zookeeper.connection.timeout.ms=60000
+
+Terminal-1 - Zookeeper server
+D:\Misc\Kafka\kafka_2.12-3.4.0\bin\windows\zookeeper-server-start.bat D:\Misc\Kafka\kafka_2.12-3.4.0\config\zookeeper.properties
+
+Terminal-2 - Kafka Server
+D:\Misc\Kafka\kafka_2.12-3.4.0\bin\windows\kafka-server-start.bat D:\Misc\Kafka\kafka_2.12-3.4.0\config\server.properties 
+
+Terminal-3 - Create Topic
+D:\Misc\Kafka\kafka_2.12-3.4.0\bin\windows\kafka-topics.bat --create --topic dns_exfil --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+
+D:\Misc\Kafka\kafka_2.12-3.4.0\bin\windows\kafka-console-producer.bat --topic dns_exfil --bootstrap-server localhost:9092
+
+
+Terminal 4 - Kafka Consumer
+D:\Misc\Kafka\kafka_2.12-3.4.0\bin\windows\kafka-console-consumer.bat --topic dns_exfil --from-beginning --bootstrap-server localhost:9092
